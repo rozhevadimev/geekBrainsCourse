@@ -1,9 +1,7 @@
-﻿// задание 10
-Console.WriteLine("Please, Enter number");
-int number = int.Parse(Console.ReadLine ()!);
+// Task 10 ordinar
 
-int f(int n) 
-{
-    return int.Parse(n.ToString().Substring(1, 1));
-}
-Console.WriteLine(f(number));
+int number = new Random().Next(100, 1000);
+
+Console.WriteLine($"Random number: {number}");
+
+Console.WriteLine($"second digit of the number:{number%100/10}");
