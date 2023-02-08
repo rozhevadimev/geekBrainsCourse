@@ -1,18 +1,19 @@
-// Задание 23
+Задание 23-1
 
-Console.WriteLine("Please, Enter number");
-int number = int.Parse(Console.ReadLine ()!);
+int num;
 
-int count = 0;
-Console.WriteLine($" {count}");
+Консоль. Write("Введите nimber: ");
 
-while (count < number)
+num = Преобразовать. ToInt32 (консоль. ЧитатьЛинию());
 
-{
-    
-count += 1;
-Console.WriteLine($"number {count}");
-//
-Console.WriteLine($"cube of number {count}" + Math.Pow(count, 3)); 
+Консоль. WriteLine("Ваш номер: " + число);
+ 
+Консоль. Читать();
+       
+Консоль. WriteLine("Число\номеркуба t");
 
- }
+для (int i = 0; i < = число; я++)
+
+{Консоль. WriteLine("{0}\t{1}", i, Math. Пау(i,3));
+
+}
