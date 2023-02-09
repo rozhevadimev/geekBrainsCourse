@@ -2,18 +2,18 @@
 
 int num;
 
-Консоль. Write("Введите nimber: ");
+Console.Write("Enter nimber: ");
 
-num = Преобразовать. ToInt32 (консоль. ЧитатьЛинию());
+num = Convert.ToInt32 (Console.ReadLine());
 
-Консоль. WriteLine("Ваш номер: " + число);
+Console.WriteLine("Your number: " + num);
  
-Консоль. Читать();
+Console.Read();
        
-Консоль. WriteLine("Число\номеркуба t");
+Console.WriteLine("Number\tcube number");
 
-для (int i = 0; i < = число; я++)
+for (int i = 0; i <= num; i++)
 
-{Консоль. WriteLine("{0}\t{1}", i, Math. Пау(i,3));
+{Console.WriteLine("{0}\t{1}", i, Math.Pow(i,3));
 
 }
