@@ -13,6 +13,6 @@ while (count < number)
 count += 1;
 Console.WriteLine($"number {count}");
 //
-Console.WriteLine($"cube of number {count}" + Math.Pow(count, 3)); 
+Console.WriteLine($"cube of number" + Math.Pow(count, 3)); 
 
  }
