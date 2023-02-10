@@ -1,19 +1,16 @@
-// Задание 4_2: Написать программу вычисления произведения чисел от 1 до N 
+// Задание 4_1 Сумма цифр числа
 
-Console.WriteLine("Please, Enter number");
+ Console.Write("Number = ");
 
-int number = int.Parse(Console.ReadLine ()!);
+        var n = Convert.ToInt32(Console.ReadLine());
 
-int count = 1;
+        var sum = 0;
 
-int product = 1;
+        while(n > 0)
+        {
+            sum += n % 10;
+         
+            n /= 10;
+        }
 
-while (count <= number)
-
-{
- product *= count;
-
-Console.WriteLine($"multiplication of number {count} - number {product}"); 
-
-count += 1;
- }
+        Console.WriteLine($"The sum of the digits of the number is {sum}");
