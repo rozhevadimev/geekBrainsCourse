@@ -10,7 +10,8 @@ int product = 1;
 
 while (count <= number)
 
-{product=product * count;
+{
+ product *= count;
 
 Console.WriteLine($"multiplication of number {count} - number {product}"); 
 
