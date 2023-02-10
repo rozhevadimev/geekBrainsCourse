@@ -1,5 +1,5 @@
 // Задание 21
-Console.WriteLine("Enter point coordinates:");
+Console.WriteLine("Please, enter point coordinates:");
 int x1 = Coordinate("x1", ":First coordinate of point 1");
 int y1 = Coordinate("x2", ":Second coordinate of point 1");
 int z1 = Coordinate("x3", ":Third coordinate of point 1");
