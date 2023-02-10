@@ -1,18 +1,18 @@
-// Задание 23
+// Задание 4_2: Написать программу вычисления произведения чисел от 1 до N 
 
 Console.WriteLine("Please, Enter number");
+
 int number = int.Parse(Console.ReadLine ()!);
 
-int count = 0;
-Console.WriteLine($" {count}");
+int count = 1;
 
-while (count < number)
+int product = 1;
 
-{
-    
+while (count <= number)
+
+{product=product * count;
+
+Console.WriteLine($"multiplication of number {count} - number {product}"); 
+
 count += 1;
-Console.WriteLine($"number {count}");
-//
-Console.WriteLine($"cube of number {count}" + Math.Pow(count, 3)); 
-
  }
