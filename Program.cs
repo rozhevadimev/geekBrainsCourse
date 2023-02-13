@@ -11,7 +11,7 @@ return result;
 }
 
 int[]array = GetArray(12, -110,110);
-
+Console.WriteLine($"The first array:");
 Console.WriteLine(String.Join(", ", array));
 for (int i = 0; i < array.Length - 1; i++)
  for (int j = 0; j < array.Length - i - 1; j++)
@@ -23,4 +23,5 @@ for (int i = 0; i < array.Length - 1; i++)
                array[j + 1] = temp;
             }
         }
+        Console.WriteLine($"Descending array after sorting:");
         Console.WriteLine(String.Join(", ", array));
