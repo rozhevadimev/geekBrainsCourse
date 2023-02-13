@@ -24,4 +24,4 @@ int Result(int[] a)
 int[]array = GetArray(12, -110,110);
 Console.WriteLine(String.Join(", ", array));
 int count = Result(array);
-Console.WriteLine(count);
+Console.WriteLine($"Sum of numbers at odd array indexes: {count}");
