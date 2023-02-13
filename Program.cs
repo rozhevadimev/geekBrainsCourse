@@ -1,6 +1,5 @@
-// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
-//Напишите программу, которая покажет количество чётных чисел в массиве.
-
+//Задание 36. Задайте одномерный массив, заполненный случайными числами. 
+//Найдите сумму элементов, стоящих на нечётных позициях.
 int[] GetArray(int size, int minValue, int maxValue)
 {
     int[] result = new int [size];
@@ -15,15 +14,14 @@ int Result(int[] a)
     int count = 0;
     for (int i = 0; i < a.Length; i++)
     {
-        if(a[i] % 2 == 0)
+        if (i % 2 != 0)
         {
-            count++;
+            count += a[i];
         }
-
     }
     return count;
 }
-int[] array  = GetArray(13, 100, 999);
+int[]array = GetArray(12, -110,110);
 Console.WriteLine(String.Join(", ", array));
 int count = Result(array);
-Console.WriteLine($"Quantity of even number:{count}");
+Console.WriteLine(count);
