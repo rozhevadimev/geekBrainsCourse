@@ -1,27 +1,19 @@
-//Задание 36. Задайте одномерный массив, заполненный случайными числами. 
-//Найдите сумму элементов, стоящих на нечётных позициях.
-int[] GetArray(int size, int minValue, int maxValue)
-{
-    int[] result = new int [size];
-    for (int i = 0; i < size; i++)
-    {
-        result[i] = new Random().Next(minValue, maxValue + 1);
-    }
-return result;
+// Задача 38: Задайте массив вещественных чисел.
+// Найдите разницу между максимальным и минимальным элементов массива
+Console.WriteLine("Please enter the size of the array:");
+int n = Convert.ToInt32(Console.ReadLine());
+int [] mass  = new int[n];
+Random rnd = new Random();
+for (int i = 0; i < n; i++)
+    { mass[i] = rnd.Next(-50, 50);
+    Console.Write($" {mass[i]} ");
 }
-int Result(int[] a)
+int min = 0;
+int max = 0;
+foreach (int i in mass)  // Ищу максимальное и минимальное значения
 {
-    int count = 0;
-    for (int i = 0; i < a.Length; i++)
-    {
-        if (i % 2 != 0)
-        {
-            count += a[i];
-        }
-    }
-    return count;
+    if (min > i) min = i;
+    if (max < i) max = i;
 }
-int[]array = GetArray(12, -110,110);
-Console.WriteLine(String.Join(", ", array));
-int count = Result(array);
-Console.WriteLine($"Sum of numbers at odd array indexes: {count}");
+Console.WriteLine($"\n Maximum array element: {max}\n Minimum array element: {min}");
+Console.WriteLine($"Difference between maximum and minimum element: {max-min}");
