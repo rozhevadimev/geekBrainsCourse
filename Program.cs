@@ -10,7 +10,7 @@ int count = 0;
 
 Console.WriteLine($" {count}");
 
-while (count < number)
+while (count < number-1)
 
 {
  
