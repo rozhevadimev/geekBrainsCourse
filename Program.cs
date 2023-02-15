@@ -1,19 +1,13 @@
-// Задача 38: Задайте массив вещественных чисел.
-// Найдите разницу между максимальным и минимальным элементов массива
-Console.WriteLine("Please enter the size of the array:");
-int n = Convert.ToInt32(Console.ReadLine());
-int [] mass  = new int[n];
-Random rnd = new Random();
+// Задача 41: Пользователь вводит с клавиатуры M чисел. 
+//Посчитайте, сколько чисел больше 0 ввёл пользователь.
+Console.WriteLine("Please enter the number of numbers: ");
+int n = int.Parse(Console.ReadLine());
+int count = 0;
 for (int i = 0; i < n; i++)
-    { mass[i] = rnd.Next(-50, 50);
-    Console.Write($" {mass[i]} ");
-}
-int min = 0;
-int max = 0;
-foreach (int i in mass)  // Ищу максимальное и минимальное значения
 {
-    if (min > i) min = i;
-    if (max < i) max = i;
+    Console.WriteLine($"Please enter a number {i + 1}: ");
+    int x = int.Parse(Console.ReadLine());
+    if (x > 0)
+        count++;
 }
-Console.WriteLine($"\n Maximum array element: {max}\n Minimum array element: {min}");
-Console.WriteLine($"Difference between maximum and minimum element: {max-min}");
+Console.WriteLine(value: $"The user entered numbers greater than zero in quntity: {count}");
