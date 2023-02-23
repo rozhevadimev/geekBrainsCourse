@@ -6,7 +6,7 @@ Console.WriteLine("Enter the coordinate of the array row");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter the coordinate of the array column");
 int m = Convert.ToInt32(Console.ReadLine());
-int [,] numbers = new int [6,10];
+int [,] numbers = new int [7,7];
 FillArrayRandomNumbers(numbers);
 
 if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
