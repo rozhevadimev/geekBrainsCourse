@@ -3,7 +3,7 @@
 Console.Clear();
 int m = InputNumbers("Enter the number of rows of the 1st matrix: ");
 int n = InputNumbers("Enter the number of columns of the 1st matrix (and rows of the 2nd matrix): ");
-int p = InputNumbers("ВEnter the number of columns of the 2nd matrix: ");
+int p = InputNumbers("Enter the number of columns of the 2nd matrix: ");
 int range = InputNumbers("Enter a range of random numbers: from 1 to ");
 int[,] firstMartrix = new int[m, n];
 CreateArray(firstMartrix);
