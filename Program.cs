@@ -2,7 +2,7 @@
 //Напишите программу, которая будет построчно выводить массив, 
 //добавляя индексы каждого элемента.
 Console.Clear();
-int[,,] array3D = new int[3, 3, 3];
+int[,,] array3D = new int[2, 2, 2];
 FillArray(array3D);
 PrintIndex(array3D);
 void PrintIndex(int[,,] arr)
