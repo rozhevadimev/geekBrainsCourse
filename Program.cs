@@ -1,35 +1,61 @@
-//Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, 
-//которая будет находить строку с наименьшей суммой элементов.
+// Задача 58: Задайте две матрицы. Напишите программу, 
+//которая будет находить произведение двух матриц.;
 Console.Clear();
-int n1, n2;
-            int[,] A;
-             Console.Write("Enter the number of rows in the matrix: ");
-            n1 = int.Parse(Console.ReadLine());
-            Console.Write("Enter the number of colums in the matrix: ");
-            n2 = int.Parse(Console.ReadLine());
-            A = new int[n1, n2];
-            Random rnd = new Random();
- 
-            for (int i = 0; i < n1; i++)
-                for (int j = 0; j < n2; j++)
-                    A[i, j] = rnd.Next(-0, 10 + 1);
- 
-                        for (int i = 0; i < n1; i++, Console.WriteLine())
-                for (int j = 0; j < n2; j++)
-                    Console.Write(A[i, j] + "\t");
-int minRowSum = int.MaxValue, indexMinRow = 0;
- 
-             for (int i = 0; i < n1; i++)
-             {
-                int rowSum = 0;
-                for (int j = 0; j < n2; j++)
-                    rowSum += A[i, j];
-                                if (rowSum < minRowSum)
-                {
-                    minRowSum = rowSum;
-                    indexMinRow = i;
-                }
-             }
-              Console.WriteLine("Row with minimum sum of matrix elements");
-                 for(int j = 0;j<n2;j++)
-                      Console.Write(A[indexMinRow, j] + "\t");
+int m = InputNumbers("Enter the number of rows of the 1st matrix: ");
+int n = InputNumbers("Enter the number of columns of the 1st matrix (and rows of the 2nd matrix): ");
+int p = InputNumbers("ВEnter the number of columns of the 2nd matrix: ");
+int range = InputNumbers("Enter a range of random numbers: from 1 to ");
+int[,] firstMartrix = new int[m, n];
+CreateArray(firstMartrix);
+Console.WriteLine($"First matrix: ");
+WriteArray(firstMartrix);
+int[,] secomdMartrix = new int[n, p];
+CreateArray(secomdMartrix);
+Console.WriteLine($"Second matrix: ");
+WriteArray(secomdMartrix);
+int[,] resultMatrix = new int[m,p];
+MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+Console.WriteLine($"Multiplication of the first and second matrices: ");
+WriteArray(resultMatrix);
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+{
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    {
+      int sum = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        sum += firstMartrix[i,k] * secomdMartrix[k,j];
+      }
+      resultMatrix[i,j] = sum;
+    }
+  }
+}
+int InputNumbers(string input)
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(range);
+    }
+  }
+}
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i,j] + " ");
+    }
+    Console.WriteLine();
+  }
+}
