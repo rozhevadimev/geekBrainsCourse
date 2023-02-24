@@ -1,41 +1,58 @@
-//Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит 
+//по убыванию элементы каждой строки двумерного массива.
 Console.Clear();
-Console.WriteLine("Enter quntity of rows: ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter quntity of colums: ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[,] numbers = new int[n, m];
-FillArrayRandomNumbers(numbers);
-for (int j = 0; j < numbers.GetLength(1); j++)
+int m = InputNumbers("Enter quantity of colums m: ");
+int n = InputNumbers("Ente quntity of rows n: ");
+int range = InputNumbers("Enter a range of numbers: from 1 to ");
+int[,] twoDimArray = new int[m, n];
+CreateArray(twoDimArray);
+WriteArray(twoDimArray);
+Console.WriteLine($"\n Descending sorted array: ");
+OrderArrayLines(twoDimArray);
+WriteArray(twoDimArray);
+void OrderArrayLines(int[,] twoDimArray)
 {
-    double avarage = 0;
-    for (int i = 0; i < numbers.GetLength(0); i++)
+  for (int i = 0; i < twoDimArray.GetLength(0); i++)
+  {
+    for (int j = 0; j < twoDimArray.GetLength(1); j++)
     {
-        avarage = (avarage + numbers[i, j]);
-    }
-    avarage = avarage / n;
-    Console.Write(avarage + "; ");
-}
-Console.WriteLine();
-PrintArray(numbers);
-void FillArrayRandomNumbers(int[,] twoDimArray)
-{
-    for (int i = 0; i < twoDimArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < twoDimArray.GetLength(1); j++)
+      for (int k = 0; k < twoDimArray.GetLength(1) - 1; k++)
+      {
+        if (twoDimArray[i, k] < twoDimArray[i, k + 1])
         {
-            twoDimArray[i, j] = new Random().Next(0, 10);
+          int temp = twoDimArray[i, k + 1];
+          twoDimArray[i, k + 1] = twoDimArray[i, k];
+          twoDimArray[i, k] = temp;
         }
+      }
     }
+  }
 }
-void PrintArray(int[,] twoDimArray)
+int InputNumbers(string input)
 {
-    for (int i = 0; i < twoDimArray.GetLength(0); i++)
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+void CreateArray(int[,] twoDimArray)
+{
+  for (int i = 0; i < twoDimArray.GetLength(0); i++)
+  {
+    for (int j = 0; j < twoDimArray.GetLength(1); j++)
     {
-               for (int j = 0; j < twoDimArray.GetLength(1); j++)
-        {
-            Console.Write(twoDimArray[i, j] + " ");
-        }
-                Console.WriteLine("");
+      twoDimArray[i, j] = new Random().Next(range);
     }
+  }
+}
+void WriteArray(int[,] twoDimArray)
+{
+  for (int i = 0; i < twoDimArray.GetLength(0); i++)
+  {
+    for (int j = 0; j < twoDimArray.GetLength(1); j++)
+    {
+      Console.Write(twoDimArray[i, j] + " ");
+    }
+    Console.WriteLine();
+  }
 }
