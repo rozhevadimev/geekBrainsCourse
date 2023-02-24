@@ -1,36 +1,33 @@
-//Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
-//Напишите программу, которая будет построчно выводить массив, 
-//добавляя индексы каждого элемента.
-Console.Clear();
-int[,,] array3D = new int[2, 2, 2];
-FillArray(array3D);
-PrintIndex(array3D);
-void PrintIndex(int[,,] arr)
+//Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+int n = 4;
+int[,] sqareMatrix = new int[n, n];
+int temp = 1;
+int i = 0;
+int j = 0;
+while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
 {
-    for (int i = 0; i < array3D.GetLength(0); i++)
-    {
-        for (int j = 0; j < array3D.GetLength(1); j++)
-        {
-            Console.WriteLine();
-            for (int k = 0; k < array3D.GetLength(2); k++)
-            {
-                Console.Write($"{array3D[i, j, k]}({i},{j},{k}) ");
-            }
-        }
-    }
+  sqareMatrix[i, j] = temp;
+  temp++;
+  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+    j++;
+  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+    i++;
+  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+    j--;
+  else
+    i--;
 }
-void FillArray(int[,,] arr)
+WriteArray(sqareMatrix);
+void WriteArray (int[,] array)
 {
-    int count = 10;
-    for (int i = 0; i < arr.GetLength(0); i++)
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            for (int k = 0; k < arr.GetLength(2); k++)
-            {
-                arr[k, i, j] += count;
-                count += 3;
-            }
-        }
+      if (array[i,j] / 10 <= 0)
+      Console.Write($" {array[i,j]} ");
+      else Console.Write($"{array[i,j]} ");
     }
+    Console.WriteLine();
+  }
 }
