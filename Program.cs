@@ -1,12 +1,12 @@
 // Задача 50. Напишите программу, которая на вход принимает 
 //позиции элемента в двумерном массиве, 
-//и возвращает значение этого элемента или же указание, 
+//и возвращает значение этого элемента или же указание, 8
 //что такого элемента нет.
 Console.WriteLine("Enter the coordinate of the array row");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter the coordinate of the array column");
 int m = Convert.ToInt32(Console.ReadLine());
-int [,] numbers = new int [7,7];
+int [,] numbers = new int [6,10];
 FillArrayRandomNumbers(numbers);
 
 if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
@@ -20,25 +20,25 @@ else
 
 PrintArray(numbers);
 
-void FillArrayRandomNumbers(int[,] array)
+void FillArrayRandomNumbers(int[,] twoDimArray)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < twoDimArray.GetLength(0); i++)
         {        
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < twoDimArray.GetLength(1); j++)
             {
-                array [i,j] = new Random().Next(-100, 100)/10;
+                twoDimArray [i,j] = new Random().Next(-100, 100)/10;
             }   
         }
 }
 
-void PrintArray(int[,] array)
+void PrintArray(int[,] twoDimArray)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < twoDimArray.GetLength(0); i++)
     {
         Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < twoDimArray.GetLength(1); j++)
         {
-            Console.Write(array[i,j] + " ");
+            Console.Write(twoDimArray[i,j] + " ");
         }   
         Console.Write("]");
         Console.WriteLine(""); 
