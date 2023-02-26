@@ -3,7 +3,6 @@
 Console.Clear();
 Console.WriteLine("Enter number M: ");
 int m = Convert.ToInt32(Console.ReadLine());
-
 Console.WriteLine("Enter number N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 SumFromMToN(m, n);
