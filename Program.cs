@@ -1,33 +1,25 @@
-//Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-int n = 4;
-int[,] sqareMatrix = new int[n, n];
-int temp = 1;
-int i = 0;
-int j = 0;
-while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+//Задача 66: Задайте значения M и N. Напишите программу, которая найдёт 
+//сумму натуральных элементов в промежутке от M до N.
+Console.Clear();
+Console.WriteLine("Enter number M: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter number N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+SumFromMToN(m, n);
+void SumFromMToN(int m, int n)
 {
-  sqareMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
+    Console.WriteLine(SumMN(m - 1, n));
 }
-WriteArray(sqareMatrix);
-void WriteArray (int[,] array)
+int SumMN(int m, int n)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    int res = m;
+    if (m == n)
+        return 0;
+    else
     {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($" {array[i,j]} ");
-      else Console.Write($"{array[i,j]} ");
+        m++;
+        res = m + SumMN(m, n);
+        return res;
     }
-    Console.WriteLine();
-  }
 }
