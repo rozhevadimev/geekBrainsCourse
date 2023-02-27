@@ -1,33 +1,20 @@
-//Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-int n = 4;
-int[,] sqareMatrix = new int[n, n];
-int temp = 1;
-int i = 0;
-int j = 0;
-while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+// Задача 64: Задайте значение N. Напишите программу, которая выведет 
+//все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+//N = 5 -> "5, 4, 3, 2, 1"
+//N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+Console.Write("Please enter any positive number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int count = 1;
+NaturalToLow(number, count);
+void NaturalToLow(int n, int count)
 {
-  sqareMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
-}
-WriteArray(sqareMatrix);
-void WriteArray (int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    if (count > n)
     {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($" {array[i,j]} ");
-      else Console.Write($"{array[i,j]} ");
+        return;
     }
-    Console.WriteLine();
-  }
+    else
+    {
+        NaturalToLow(n, count + 1);
+        Console.Write(count + " ");
+    }
 }
